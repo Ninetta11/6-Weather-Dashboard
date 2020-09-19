@@ -1,0 +1,39 @@
+
+aside, section {
+    padding: 20px;
+}
+
+aside {
+    background-color: rgb(235, 235, 235);
+}
+
+.jumbotron {
+    background-color: slategrey;
+    margin-bottom: 0px;
+    height: 80px;
+    padding: 20px 20px;
+}
+
+input {
+    margin: 10px 0px 10px;
+}
+
+.low {
+    background-color: green;
+}
+
+.moderate {
+    background-color: yellow;
+}
+
+.high {
+    background-color: orange;
+}
+
+.veryHigh {
+    background-color: red;
+}
+
+.extreme {
+    background-color: violet;
+}
