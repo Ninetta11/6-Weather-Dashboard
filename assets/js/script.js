@@ -67,7 +67,7 @@ function getCurrentForecast(){
         var humidity = response.main.humidity;
         var windSpeed = response.wind.speed;
         var lat = response.coord.lat;
-        var lon = respsonse.coord.lon;
+        var lon = response.coord.lon;
 
         
         var uvIndex = getUVIndex(lat,lon);
