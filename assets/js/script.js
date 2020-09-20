@@ -4,10 +4,14 @@ var searchInput = document.getElementById("search-entry");
 var currentForecast = document.getElementById("current");
 var futureForecast = document.getElementById('future');
 
-var cityHeading, weeklyForecastHeading = document.createElement("h2");
+var cityHeading = document.createElement("h2");
+var weeklyForecastHeading = document.createElement("h2");
 var displayDate = document.createElement("h3");
 var displayIcon = document.createElement("img");
-var displayTemp, displayHumidity, displayWindSpeed, displayUV = document.createElement("p");
+var displayTemp = document.createElement("p");
+var displayHumidity = document.createElement("p");
+var displayWindSpeed = document.createElement("p");
+var displayUV = document.createElement("p");
 
 var openWeatherURL = "https://api.openweathermap.org/";
 var apiKey = "be7a39895621e97d4b83ace8f5bc938f";
@@ -26,6 +30,7 @@ function displaySearchHistory(){
 };
     
 
+// 
 function search(){
     //clear previous searches???
     getCurrentForecast();
@@ -53,15 +58,13 @@ function createList(){
 };
 
 
+// searches for current forecast based on input
 function getCurrentForecast(){
     var queryURL = openWeatherURL + "data/2.5/weather?q=" + city + "&units=metric&appid=" + apiKey;   
-    console.log(queryURL);
     $.ajax({
         url: queryURL,  
         method: "GET"
     }).then(function(response){
-        console.log(response);
-    
         var weatherCondition = response.weather.icon;
         var tempCelsius = response.main.temp;
         var humidity = response.main.humidity;
@@ -69,7 +72,7 @@ function getCurrentForecast(){
         var lat = response.coord.lat;
         var lon = response.coord.lon;
 
-        
+        // searches for UV index and sets attribute based on value returned
         var uvIndex = getUVIndex(lat,lon);
         if (uvIndex <= 2){
             displayUV.setAttribute("class", "low");
@@ -88,18 +91,20 @@ function getCurrentForecast(){
         };
         displayUV.textContent = "UV Index: " + uvIndex;
 
+        // displays results
         cityHeading.textContent = city;
         displayIcon.setAttribute("src", selectIcon(weatherCondition));
         displayTemp.textContent = "Temperature: " + tempCelsius.Math.round() + " C";
         displayHumidity.textContent = "Humidity: " + humidity + "%";
         displayWindSpeed.textContent = "Wind Speed: " + windSpeed + " MPH";
         currentForecast.append(cityHeading, displayDate, displayIcon, displayTemp, displayHumidity, displayWindSpeed, displayUV);
-
+        
         getWeeklyForecast(lat,lon);
     })
-}
+};
     
 
+// searches for 5 day forecast based on input
 function getWeeklyForecast(lat,lon){
     weeklyForecastHeading = "5-Day Forecast";   
     var date = moment().unix();
@@ -116,6 +121,7 @@ function getWeeklyForecast(lat,lon){
             var tempCelsius = response.current.temp;
             var humidity = response.current.humidity;
             
+            // displays results
             displayDate.textContent = moment().unix(date).format('Do MM YYYY');
             displayIcon.setAttribute("src", selectIcon(weatherCondition));
             displayTemp.textContent = "Temperature: " + tempCelsius.Math.round() + " C";
@@ -124,6 +130,7 @@ function getWeeklyForecast(lat,lon){
         })
     };
 };
+
 
 // gets related icon for weather conditions
 function selectIcon(x){
@@ -138,6 +145,7 @@ function selectIcon(x){
     })
 };
 
+// gets UV Index based on input
 function getUVIndex(lat,lon){
     var queryURL = openWeatherURL + "data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
     console.log(queryURL);
