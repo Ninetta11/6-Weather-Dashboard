@@ -9,7 +9,7 @@ var displayDate = document.createElement("h3");
 var displayIcon = document.createElement("img");
 var displayTemp, displayHumidity, displayWindSpeed, displayUV = document.createElement("p");
 
-var openWeatherURL = "http://api.openweathermap.org/";
+var openWeatherURL = "https://api.openweathermap.org/";
 var apiKey = "be7a39895621e97d4b83ace8f5bc938f";
 var searchHistory = [];
 var city = "";
