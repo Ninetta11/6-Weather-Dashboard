@@ -139,7 +139,7 @@ function selectIcon(x){
 };
 
 function getUVIndex(lat,lon){
-    var queryURL = openWeatherURL + "data/2.5/uvi?appid=" + apikey + "&lat=" + lat + "&lon=" + lon;
+    var queryURL = openWeatherURL + "data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
     console.log(queryURL);
     $.ajax({
         url: queryURL,
