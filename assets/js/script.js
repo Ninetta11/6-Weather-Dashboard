@@ -129,7 +129,7 @@ function getForecast(){
                 displayIcon.setAttribute("class", "main");
                 displayIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + weatherCondition + "@2x.png");
                 displayDate.setAttribute("class", "main-date");
-                displayDate.textContent = moment.unix(date).format('dddd Do MMMM');
+                displayDate.textContent = moment().unix(date).format('dddd Do MMMM');
                 displayTemp.textContent = "Temperature: " + Math.round(tempCelsius) + "\u00B0C";
                 displayHumidity.textContent = "Humidity: " + humidity + "%";
                 displayWindSpeed.textContent = "Wind Speed: " + windSpeed + " MPH";
@@ -140,7 +140,7 @@ function getForecast(){
             }
             else {
                 // for subsequent five days of forecast, setting content for display
-                displayDate.textContent = moment.unix(date).format('dddd');
+                displayDate.textContent = moment().unix(date).format('dddd');
                 displayIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + weatherCondition + "@2x.png");
                 displayTemp.textContent = "Temp: " + Math.round(tempCelsius) + "\u00B0C";
                 displayHumidity.textContent = "Humidity: " + humidity + "%";
