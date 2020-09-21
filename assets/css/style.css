@@ -7,6 +7,10 @@ aside {
     background-color: rgb(235, 235, 235);
 }
 
+input {
+    margin: 10px 0px 10px;
+}
+
 .jumbotron {
     background-color: slategrey;
     margin-bottom: 0px;
@@ -14,8 +18,8 @@ aside {
     padding: 20px 20px;
 }
 
-input {
-    margin: 10px 0px 10px;
+.main-date {
+    margin-bottom: 20px;
 }
 
 .low {
@@ -30,10 +34,26 @@ input {
     background-color: orange;
 }
 
-.veryHigh {
+.very-high {
     background-color: red;
 }
 
 .extreme {
     background-color: violet;
+}
+
+.main {
+    position: absolute;
+    right: 20%;
+    top: 10px;
+    width: 20%;
+    height: auto;
+}
+
+#current {
+    padding-left: 20px;
+}
+
+.list-group-item {
+    margin: 12px;
 }
