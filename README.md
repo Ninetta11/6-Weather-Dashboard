@@ -1,7 +1,7 @@
 # 6-Weather-Dashboard
 Assignment 6: Weather Dashboard
 
-https://ninetta11.github.io/6-Weather-Dashboard/
+Click here for App(https://ninetta11.github.io/6-Weather-Dashboard/)
 
 ## Functionality
 In this Weather Dashboard you are able to:
